@@ -56,7 +56,8 @@ async function getFood(name) {
 // Search for Foods
 app.get('/api/foods', async (req, res) => {
     const query = req.query.q || 'apple';
-    console.log(await getFood(query))
+    var response = await getFood(query)
+    res.json(JSON.stringify(response));
 
     // const request_data = {
     //     url: `${FATSECRET_API_URL}?method=foods.search&format=json&search_expression=${query}`,
